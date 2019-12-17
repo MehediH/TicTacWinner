@@ -1,5 +1,4 @@
 import javafx.util.Pair;
-
 import java.util.HashMap;
 
 public class TicTac {
@@ -17,22 +16,11 @@ public class TicTac {
         this.origMoveY = j;
 
         this.origMoveVal = this.game[i][j];
-    }
 
-    public static void main(String[] args) {
-        int[][] game = {
-                {-1, -1, -1},
-                {1, 1, -1},
-                {1, 1, 1}
-        };
-
-        TicTac currentGame = new TicTac(game, 0, 1);
-
-        System.out.println(currentGame.checkState());
     }
 
     public String checkState(){
-        if (this.game[this.origMoveX][this.origMoveY] == 0){
+        if (this.origMoveVal == 0 || checkWithinRange(this.origMoveVal) == false){
             return "Yet to be decided";
         }
 
@@ -60,7 +48,8 @@ public class TicTac {
             return out;
         }
 
-        if (this.game[i][j] == this.origMoveVal){
+        if (this.game[i][j] == this.origMoveVal && checkWithinRange(this.game[i][j])){
+
             out += this.game[i][j];
 
             this.memo.put(new Pair<Integer, Integer>(i, j), true);
@@ -80,19 +69,28 @@ public class TicTac {
 
 
     public int diagonalDFS(int i, int j, int out){
-        if (this.game[i][j] == this.origMoveVal){
+
+        if (this.game[i][j] == this.origMoveVal && checkWithinRange(this.game[i][j])){
             if (i == j){
-                out += this.game[0][0];
-                out += this.game[1][1];
-                out += this.game[2][2];
+                out += (checkWithinRange(this.game[0][0])) ? this.game[0][0] : 0;
+                out += (checkWithinRange(this.game[1][1])) ? this.game[1][1] : 0;
+                out += (checkWithinRange(this.game[2][2])) ? this.game[2][2] : 0;
             } else if(j > i || i > j){
-                out += this.game[0][2];
-                out += this.game[1][1];
-                out += this.game[2][0];
+                out += (checkWithinRange(this.game[0][2])) ? this.game[0][2] : 0;
+                out += (checkWithinRange(this.game[1][1])) ? this.game[1][1] : 0;
+                out += (checkWithinRange(this.game[2][0])) ? this.game[2][0] : 0;
             }
         }
 
         return out;
+    }
+
+    public Boolean checkWithinRange(int val){
+        if(val >= -1 && val <= 1){
+            return true;
+        }
+
+        return false;
     }
 
     public String printResult(int out){
