@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 public class TicTacTest {
     TicTac currentGame;
 
-//     1 represents X
-//     -1 represents O
-//     0 represents empty space (move yet to be made)
+    //  1 represents X
+    // -1 represents O
+    //  0 represents empty space (move yet to be made)
 
     @Test
     public void testCheckVert() throws Exception {
@@ -21,7 +21,7 @@ public class TicTacTest {
 
         System.out.println("Game 1: X has won");
 
-        assertEquals("X has won", currentGame.checkState()); // X has won (middle column, vertically)
+        assertEquals("X has won", currentGame.verifyGame()); // X has won (middle column, vertically)
     }
 
     @Test
@@ -35,7 +35,7 @@ public class TicTacTest {
         System.out.println("Game 2: O has won");
 
         this.currentGame = new TicTac(game, 2, 0);
-        assertEquals("O has won", currentGame.checkState()); // O has won (bottom row, horizontally)
+        assertEquals("O has won", currentGame.verifyGame()); // O has won (bottom row, horizontally)
     }
 
     @Test
@@ -49,7 +49,7 @@ public class TicTacTest {
         System.out.println("Game 3: O has won");
 
         this.currentGame = new TicTac(game, 2, 2);
-        assertEquals("O has won", currentGame.checkState()); // O has won (diagonally)
+        assertEquals("O has won", currentGame.verifyGame()); // O has won (diagonally)
     }
 
     @Test
@@ -63,7 +63,7 @@ public class TicTacTest {
         System.out.println("Game 4: X has won");
 
         this.currentGame = new TicTac(game, 0, 2);
-        assertEquals("X has won", currentGame.checkState()); // X has won (anti-diagonally)
+        assertEquals("X has won", currentGame.verifyGame()); // X has won (anti-diagonally)
     }
 
     @Test
@@ -77,7 +77,7 @@ public class TicTacTest {
         System.out.println("Game 5: Yet to be decided");
 
         this.currentGame = new TicTac(game, 1, 1);
-        assertEquals("Yet to be decided", currentGame.checkState()); // No one wins
+        assertEquals("Yet to be decided", currentGame.verifyGame()); // No one wins
     }
 
     @Test
@@ -91,7 +91,7 @@ public class TicTacTest {
         System.out.println("Game 6: Yet to be decided");
 
         this.currentGame = new TicTac(game, 1, 0);
-        assertEquals("Yet to be decided", currentGame.checkState()); // Game yet to be played
+        assertEquals("Yet to be decided", currentGame.verifyGame()); // Game yet to be played
     }
 
     @Test
@@ -105,7 +105,7 @@ public class TicTacTest {
         System.out.println("Game 7: Yet to be decided");
 
         this.currentGame = new TicTac(game, 2, 1);
-        assertEquals("Yet to be decided", currentGame.checkState()); // Invalid value, so yet to be decided
+        assertEquals("Yet to be decided", currentGame.verifyGame()); // Invalid value, so yet to be decided
     }
 
     @Test
@@ -119,7 +119,7 @@ public class TicTacTest {
         System.out.println("Game 8: Yet to be decided");
 
         this.currentGame = new TicTac(game, 0, 2);
-        assertEquals("Yet to be decided", currentGame.checkState()); // Invalid value, so yet to be decided
+        assertEquals("Yet to be decided", currentGame.verifyGame()); // Invalid value, so yet to be decided
     }
 
 }
