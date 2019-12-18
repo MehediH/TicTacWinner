@@ -18,6 +18,9 @@ public class TicTacTest {
         };
 
         this.currentGame = new TicTac(game, 0, 1);
+
+        System.out.println("Game 1: X has won");
+
         assertEquals("X has won", currentGame.checkState()); // X has won (middle column, vertically)
     }
 
@@ -28,6 +31,8 @@ public class TicTacTest {
                 {1, -1, 1},
                 {-1, -1, -1}
         };
+
+        System.out.println("Game 2: O has won");
 
         this.currentGame = new TicTac(game, 2, 0);
         assertEquals("O has won", currentGame.checkState()); // O has won (bottom row, horizontally)
@@ -41,6 +46,8 @@ public class TicTacTest {
                 {-1, 1, -1}
         };
 
+        System.out.println("Game 3: O has won");
+
         this.currentGame = new TicTac(game, 2, 2);
         assertEquals("O has won", currentGame.checkState()); // O has won (diagonally)
     }
@@ -52,6 +59,8 @@ public class TicTacTest {
                 {0, 1, 0},
                 {1, 0, 0}
         };
+
+        System.out.println("Game 4: X has won");
 
         this.currentGame = new TicTac(game, 0, 2);
         assertEquals("X has won", currentGame.checkState()); // X has won (anti-diagonally)
@@ -65,6 +74,8 @@ public class TicTacTest {
                 {1, -1, -1}
         };
 
+        System.out.println("Game 5: Yet to be decided");
+
         this.currentGame = new TicTac(game, 1, 1);
         assertEquals("Yet to be decided", currentGame.checkState()); // No one wins
     }
@@ -76,6 +87,8 @@ public class TicTacTest {
                 {0, 0, 0},
                 {0, 0, 0}
         };
+
+        System.out.println("Game 6: Yet to be decided");
 
         this.currentGame = new TicTac(game, 1, 0);
         assertEquals("Yet to be decided", currentGame.checkState()); // Game yet to be played
@@ -89,6 +102,8 @@ public class TicTacTest {
                 {2, -3, 20}
         };
 
+        System.out.println("Game 7: Yet to be decided");
+
         this.currentGame = new TicTac(game, 2, 1);
         assertEquals("Yet to be decided", currentGame.checkState()); // Invalid value, so yet to be decided
     }
@@ -100,6 +115,8 @@ public class TicTacTest {
                 {1, -1, 1},
                 {1, 1, -1}
         };
+
+        System.out.println("Game 8: Yet to be decided");
 
         this.currentGame = new TicTac(game, 0, 2);
         assertEquals("Yet to be decided", currentGame.checkState()); // Invalid value, so yet to be decided

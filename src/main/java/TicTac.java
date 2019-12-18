@@ -3,11 +3,9 @@ import java.util.HashMap;
 
 public class TicTac {
     private int[][] game;
-
     private int origMoveX;
     private int origMoveY;
     private int origMoveVal;
-
     private HashMap<Pair, Boolean> memo = new HashMap<Pair, Boolean>();
 
     public TicTac(int[][] game, int i, int j) {
@@ -16,6 +14,18 @@ public class TicTac {
         this.origMoveY = j;
 
         this.origMoveVal = this.game[i][j];
+    }
+
+    public static void main(String[] args){
+        int[][] game = {
+                {1, 1, -1},
+                {-1, 1, 0},
+                {0, 1, -1}
+        };
+
+        TicTac testGame = new TicTac(game, 0, 1);
+
+        System.out.println(testGame.checkState());
 
     }
 
